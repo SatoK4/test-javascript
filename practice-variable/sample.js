@@ -1,4 +1,6 @@
 // -----再宣言-----
+// 一度宣言した変数名で、再度変数宣言を行うこと
+
 // ・varによる再宣言
 // var nickname = "taro"
 // console.log(nickname)
