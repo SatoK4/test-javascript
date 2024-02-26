@@ -102,3 +102,34 @@
 
 // ・constのスコープ
 // ブロックスコープの変数を宣言できる。
+
+// -----巻き上げ-----
+// 変数の巻き上げとは、関数内のどの部分で変数を宣言したとしても、関数冒頭で変数を宣言したことになる。
+
+// 1.)
+// var str = "webcamp"
+
+// function foo() {
+//   console.log(str)
+//   var str = "dmm webcamp"
+//   console.log(str)
+// }
+
+// foo()
+
+// 2.)
+// var str = "webcamp"
+
+// function foo() {
+//   var str
+//   console.log(str)
+//   str = "dmm webcamp"
+//   console.log(str)
+// }
+
+// foo()
+// 1.) と 2.) は同じ内容。処理としては、var strの変数宣言の部分が巻き上げられている。
+// 今回の場合、グローバルスコープの「str」という変数と、関数スコープの「str」という同名の変数が存在しているが、console.log(str)が関数内で使用されているため、関数スコープのstrが参照される。
+// そのため、初めのconsole.logで参照されたstrは、124行目の通り、宣言されたのみの変数で値は代入されていない。その結果、「undefined」と表示される。
+
+// letやconstも同様に変数の巻き上げが起きるが、varとは違い、エラーが吐かれるため注意が必要。
