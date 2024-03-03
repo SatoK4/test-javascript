@@ -20,3 +20,32 @@
 //   処理
 //   return 戻り値;
 // }
+
+// ～～～実際の例～～～
+// function addString(strA){
+//   let addStr = "Hello " + strA;
+//   return addStr;
+// }
+// -----解説-----
+// ・25行目
+// function の後に関数名「addString」を記述、引数に「strA」を定義
+// ・26行目
+// 変数名「addStr」に、「Hello 」の文字列と、関数の引数「strA」に設定されている文字列を結合している。
+// ・27行目
+// 結合結果の格納された「addStr」を、関数の戻り値としている。return を記述することで、出力結果が表示される。
+
+// -----作成した関数を呼び出す-----
+// メイン部分
+// let alertString
+
+// 作成した関数を呼び出し、変数へ格納
+// alertString = addString("webCamp");
+
+// 変数の中身をアラートで表示
+// alert(alertString);
+
+// 作成した関数
+// function addString(strA){
+//   let addStr = "Hello " + strA;
+//   return addStr;
+// }
