@@ -59,3 +59,90 @@
 // let promptStr = prompt('何か好きな文字を入力してください');
 // alert(promptStr);
 // 文字を入力すると、「promptStr」に格納され、アラートウィンドウ上に表示される。
+
+// -----複数の関数を定義-----
+// 今回は、ユーザーが入力したじゃんけんの手（グー・チョキ・パー）と、JavaScriptがランダムに出すじゃんけんの手を比較し、勝ち負けの結果を表示させる関数を定義する。
+// まず、じゃんけんの手を入力するプロンプト欄を作成。
+// --------------------------
+// let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+// alert('あなたの選んだ手は' + user_hand + 'です。');
+// --------------------------
+// 次に、相手のじゃんけんの手をランダムに選択する関数を追加する。
+// --------------------------
+// function getJShand(){
+//   let js_hand_num = Math.floor(Math.random() * 3);
+
+//   if(js_hand_num == 0){
+//     js_hand = "グー";
+//   } else if(js_hand_num == 1){
+//     js_hand = "チョキ";
+//   } else if(js_hand_num == 2){
+//     js_hand = "パー";
+//   }
+
+//   return js_hand;
+
+// ～～～解説～～～
+// ・73行目
+// 乱数を生成する関数を設定。
+// Math.floor(Math.random() * 3)は、0～2までのランダムな整数値を生成する。
+// ・75～81行目
+// ランダム生成された数値を基に条件分岐させ、グー・チョキ・パーを出し分ける。
+// ・83行目
+// 関数の戻り値として、グー・チョキ・パーの文字列を返す。
+// --------------------------
+// 上で学んだことを応用して、勝ち、負け、引き分けの結果までを表示するコードが以下のものになる。
+let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+
+let js_hand = getJShand();
+
+let judge = winLose(user_hand, js_hand);
+
+alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+
+function getJShand(){
+  let js_hand_num = Math.floor(Math.random() * 3);
+  let hand_name;
+
+  if(js_hand_num == 0){
+    hand_name = "グー";
+  } else if(js_hand_num == 1){
+    hand_name = "チョキ";
+  } else if(js_hand_num == 2){
+    hand_name = "パー";
+  }
+
+  return hand_name;
+}
+
+function winLose(user, js){
+  let winLoseStr;
+
+  if(user == "グー"){
+    if(js == "グー"){
+      winLoseStr = "あいこ";
+    } else if(js == "チョキ"){
+      winLoseStr = "勝ち";
+    } else if(js == "パー"){
+      winLoseStr = "負け";
+    }
+  } else if(user == "チョキ"){
+    if(js == "グー"){
+      winLoseStr = "負け";
+    } else if(js == "チョキ"){
+      winLoseStr = "あいこ";
+    } else if(js == "パー"){
+      winLoseStr = "勝ち";
+    }
+  } else if(user == "パー"){
+    if(js == "グー"){
+      winLoseStr = "勝ち";
+    } else if(js == "チョキ"){
+      winLoseStr = "負け";
+    } else if(js == "パー"){
+      winLoseStr = "あいこ";
+    }
+  }
+
+  return winLoseStr;
+}
